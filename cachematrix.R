@@ -22,7 +22,8 @@
 # specialM <- makeCacheMatrix(M) # Create a Special "matrix" object
 # Minverse <- cacheSolve(specialM) # Compute the inverse of M
 ## Calling the above line twice would look for the cached version of Minverse
-# table(sum(diag(specialM$get() %*% specialM$getinversematrix()))) # Quickly checking inverse
+# Quickly checking inverse
+# table(sum(diag(specialM$get() %*% specialM$getinversematrix()))) 
 
 ##`MakeCacheMatrix`: This function creates a special "matrix" object
 # that can cache its inverse.
