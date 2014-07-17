@@ -25,7 +25,7 @@
 # table(sum(diag(a$get() %*% a$getinversematrix()))) # Quickly checking inverse
 
 ##`MakeCacheMatrix`: This function creates a special "matrix" object
-## that can cache its inverse.
+# that can cache its inverse.
 # It is a list containing a function to 
 # 1.  set the value of the matrix "M": 
 #   makeCacheMatrix$set(M)
@@ -50,9 +50,9 @@ makeCacheMatrix <- function(x = matrix()) {
 }
 
 ## `cacheSolve`: This function computes the inverse of the special
-## "matrix" returned by `makeCacheMatrix` above. If the inverse has
-## already been calculated (and the matrix has not changed), then
-## `cacheSolve` should retrieve the inverse from the cache.
+# "matrix" returned by `makeCacheMatrix` above. If the inverse has
+# already been calculated (and the matrix has not changed), then
+# `cacheSolve` should retrieve the inverse from the cache.
 cacheSolve <- function(x, ...) {
   ## Return a matrix that is the inverse of 'x'
   i <- x$getinversematrix()
