@@ -10,22 +10,24 @@
 # (Details on scoping http://cran.r-project.org/doc/manuals/R-intro.html#Scope )
 #
 #
-# The solution is divided in a pair function `MakeCacheMatrix` and `cacheSolve`
+# The solution is divided in a pair function `makeCacheMatrix` and `cacheSolve`
 #
-# Notice: Our solution, assume that the matrix supplied is always invertible.
+# Notice: Our solution assumes that the matrix supplied is always invertible.
 
 ## Example:
 #
 # source("cacheMatrix.R")
 # Generate a random matrix "M" of size 10x10
 # M <- matrix(rnorm(100,3,40),10) # Unlikely singular...
-# specialM <- makeCacheMatrix(M) # Create a Special "matrix" object
-# Minverse <- cacheSolve(specialM) # Compute the inverse of M
+# specialM <- makeCacheMatrix(M) # Create a special "matrix" object
+# Minverse <- cacheSolve(specialM) # Compute the inverse of M 
 ## Calling the above line twice would look for the cached version of Minverse
-# Quickly checking inverse
-# table(sum(diag(specialM$get() %*% specialM$getinversematrix()))) 
+## We can quickly check the inverse by multiplying the matrix and its inverse 
+## which should return the identity matrix.
+# table(sum(diag(specialM$get() %*% specialM$getinversematrix())))
 
-##`MakeCacheMatrix`: This function creates a special "matrix" object
+
+##`makeCacheMatrix`: This function creates a special "matrix" object
 # that can cache its inverse.
 # It is a list containing a function to 
 # 1.  set the value of the matrix "M": 
